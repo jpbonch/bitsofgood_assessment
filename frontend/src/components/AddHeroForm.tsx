@@ -1,7 +1,6 @@
 import HeroService from "../services/HeroService";
 import { useState } from "react";
 import { v4 as uuid } from 'uuid';
-import image from '../assets/default.jpg';
 
 interface FormData {
     name: string,
@@ -21,7 +20,7 @@ const formDefault = {
     rating: ""
 }
 
-function AddHeroForm() {
+function AddHeroForm({hideModal} : {hideModal:Function}) {
     const [formData, setFormData] = useState<FormData>(formDefault);
 
     function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -33,11 +32,12 @@ function AddHeroForm() {
         event.preventDefault();
         const newHero = {
             ...formData,
-            avatar: image,
+            avatar: "https://i.imgur.com/N8hZCWK.jpg",
             status: false,
             id: uuid()
         }
-        HeroService.create(newHero)
+        HeroService.create(newHero);
+        hideModal();
     }
 
     return (

@@ -27,7 +27,7 @@ app.get('/api/bog/users/:id', (req, res) => {
 
 
 app.post('/api/bog/users', (req, res) => {
-    // database.push()
+  database.push(req.body)
 });
 
 app.put('/api/bog/users/:id', (req, res) => {
