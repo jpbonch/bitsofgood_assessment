@@ -1,6 +1,5 @@
 import { Hero } from "../types/Hero";
 import "./styles/HeroListing.css";
-import HeroService from "../services/HeroService";
 import { useState } from "react";
 import Modal from "./core/Modal";
 import EditHeroForm from "./EditHeroForm";

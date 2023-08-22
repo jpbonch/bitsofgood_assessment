@@ -1,7 +1,5 @@
-import HeroService from "../services/HeroService";
 import { Hero } from "../types/Hero";
 import { useState } from "react";
-import { v4 as uuid } from 'uuid';
 
 function EditHeroForm({hero, setShowModal, updateHero} : {hero: Hero, setShowModal: (arg0: boolean) => void, updateHero: (id : string, data: Hero)=> void}) {
     const [formData, setFormData] = useState<Hero>(hero);

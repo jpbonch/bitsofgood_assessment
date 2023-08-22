@@ -1,7 +1,5 @@
 import './assets/App.css';
-import { useState, useEffect, createContext } from 'react';
 import Main from './pages/Main';
-import useHeroes from './hooks/useHeroes';
 
 function App() {
 

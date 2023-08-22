@@ -1,7 +1,5 @@
-import HeroService from "../services/HeroService";
 import { useState } from "react";
 import { v4 as uuid } from 'uuid';
-import useHeroes from "../hooks/useHeroes";
 import { Hero } from "../types/Hero";
 
 const formDefault = {
