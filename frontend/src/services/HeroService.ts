@@ -1,24 +1,24 @@
 import api from "../utils/api";
 import { Hero } from "../types/Hero";
 
-const getAll = () => {
-  return api.get<Array<Hero>>("/users");
+const getAll = async () => {
+  return await api.get<Array<Hero>>("/users");
 };
 
-const get = (id: any) => {
-  return api.get<Hero>(`/users/${id}`);
+const get = async (id: string) => {
+  return await api.get<Hero>(`/users/${id}`);
 };
 
-const create = (data: Hero) => {
-  return api.post<Hero>("/users", data);
+const create = async (data: Hero) => {
+  return await api.post<Hero>("/users", data);
 };
 
-const update = (id: any, data: Hero) => {
-  return api.put<any>(`/users/${id}`, data);
+const update = async (id: string, data: Hero) => {
+  return api.put<Hero>(`/users/${id}`, data);
 };
 
-const remove = (id: any) => {
-  return api.delete<any>(`/users/${id}`);
+const remove = async (id: string) => {
+  return await api.delete<Hero>(`/users/${id}`);
 };
 
 const HeroService = {

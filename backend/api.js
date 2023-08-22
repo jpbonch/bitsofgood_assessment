@@ -27,15 +27,25 @@ app.get('/api/bog/users/:id', (req, res) => {
 
 
 app.post('/api/bog/users', (req, res) => {
-  database.push(req.body)
+    database.push(req.body)
 });
 
 app.put('/api/bog/users/:id', (req, res) => {
-  //todo
+    for (let i = 0; i < database.length; i++) {
+      if (database[i].id == req.params.id) {
+        database[i] = req.body;
+        break;
+      }
+    }
 });
 
 app.delete('/api/bog/users/:id', (req, res) => {
-  //todo
+    for (let i = 0; i < database.length; i++) {
+      if (database[i].id == req.params.id) {
+        database.splice(i, 1)
+        break;
+      }
+    }
 });
 
 // Start the server

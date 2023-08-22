@@ -1,9 +1,9 @@
 import './assets/App.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import Main from './pages/Main';
+import useHeroes from './hooks/useHeroes';
 
 function App() {
-  const [heroData, setHeroData] = useState({}) 
 
   return (
     <div className="App">

@@ -1,37 +1,24 @@
 import HeroService from "../services/HeroService";
+import { Hero } from "../types/Hero";
 import { useState } from "react";
 import { v4 as uuid } from 'uuid';
-import useHeroes from "../hooks/useHeroes";
-import { Hero } from "../types/Hero";
 
-const formDefault = {
-    name: "",
-    hero_project: "",
-    notes: "",
-    email: "",
-    phone: "",
-    rating: "",
-    avatar: "https://i.imgur.com/N8hZCWK.jpg",
-    status: false,
-    id: uuid()
-}
-
-function AddHeroForm({setShowModal, addHero} : {setShowModal: (arg0: boolean) => void, addHero: (newHero: Hero) => void}) {
-    const [formData, setFormData] = useState<Hero>(formDefault);
+function EditHeroForm({hero, setShowModal, updateHero} : {hero: Hero, setShowModal: (arg0: boolean) => void, updateHero: (id : string, data: Hero)=> void}) {
+    const [formData, setFormData] = useState<Hero>(hero);
 
     function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
       }
 
-    const formSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const editHero = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        addHero(formData);
+        updateHero(hero.id, formData);
         setShowModal(false);
     }
 
     return (
-        <form onSubmit={formSubmit}>
+        <form onSubmit={editHero}>
             <label>
                 Name:
                 <input type="text" name="name" value={formData.name} onChange={handleInputChange} />
@@ -61,4 +48,4 @@ function AddHeroForm({setShowModal, addHero} : {setShowModal: (arg0: boolean) =>
     );
 }
 
-export default AddHeroForm;
+export default EditHeroForm;
