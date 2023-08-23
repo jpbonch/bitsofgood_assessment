@@ -28,7 +28,7 @@ function HeroTable() {
             {heroesToDisplay.map((hero, idx) => <HeroListing key={idx} hero={hero} updateHero={updateHero}/>)}
         </div>
         <button onClick={()=>setShowModal(true)}>Add Hero</button>
-        <PageControls itemsPerPage={HEROES_PER_PAGE} totalItems={heroes.length} setCurrentPage={setCurrentPage} />
+        <PageControls itemsPerPage={HEROES_PER_PAGE} totalItems={heroes.length} setCurrentPage={setCurrentPage} currentPage={currentPage} />
         {showModal ? <Modal><AddHeroForm setShowModal={setShowModal} addHero={addHero}></AddHeroForm></Modal>: null}
         </>
     );
