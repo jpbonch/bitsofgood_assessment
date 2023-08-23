@@ -1,21 +1,8 @@
 import { useState } from "react";
-import { v4 as uuid } from 'uuid';
 import { Hero } from "../types/Hero";
 
-const formDefault = {
-    name: "",
-    hero_project: "",
-    notes: "",
-    email: "",
-    phone: "",
-    rating: "",
-    avatar: "https://i.imgur.com/N8hZCWK.jpg",
-    status: false,
-    id: uuid()
-}
-
 function AddHeroForm({setShowModal, addHero} : {setShowModal: (arg0: boolean) => void, addHero: (newHero: Hero) => void}) {
-    const [formData, setFormData] = useState<Hero>(formDefault);
+    const [formData, setFormData] = useState<Hero>(new Hero());
 
     function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
         const { name, value } = event.target;
