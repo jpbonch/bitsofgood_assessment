@@ -17,7 +17,7 @@ function HeroListing({hero, updateHero} : {hero: Hero, updateHero: (id: string, 
 
     return (
         <>
-        <div onClick={() => {incrementClickCount();  console.log(hero.clicks);navigate("/hero")}} className="listingContainer">
+        <div onClick={() => {incrementClickCount(); navigate("/hero", {state: hero})}} className="listingContainer">
             <img src={hero.avatar} alt="Hero"></img>
             <p>{hero.name}</p>
             <p>{hero.hero_project}</p>
