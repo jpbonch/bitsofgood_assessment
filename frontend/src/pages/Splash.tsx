@@ -4,6 +4,7 @@ function Splash() {
         <>
         <p>splash page</p>
         <Link to="/heroes"><button>to heroes</button></Link>
+        <Link to="/admin"><button>admin login</button></Link>
         </>
     );
 }

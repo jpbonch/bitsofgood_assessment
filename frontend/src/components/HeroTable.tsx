@@ -6,7 +6,7 @@ import useHeroes from "../hooks/useHeroes";
 import PageControls from "./core/PageControls";
 
 
-function HeroTable() {
+function HeroTable({isAdmin}: {isAdmin: boolean}) {
     const {heroes, loading, addHero, updateHero} = useHeroes();
     const [showModal, setShowModal] = useState<boolean>(false);
     const [currentPage, setCurrentPage] = useState<number>(1);
@@ -25,7 +25,7 @@ function HeroTable() {
     return (
         <>
         <div>
-            {heroesToDisplay.map((hero, idx) => <HeroListing key={idx} hero={hero} updateHero={updateHero}/>)}
+            {heroesToDisplay.map((hero, idx) => <HeroListing isAdmin={isAdmin} key={idx} hero={hero} updateHero={updateHero}/>)}
         </div>
         <button onClick={()=>setShowModal(true)}>Add Hero</button>
         <PageControls itemsPerPage={HEROES_PER_PAGE} totalItems={heroes.length} setCurrentPage={setCurrentPage} currentPage={currentPage} />

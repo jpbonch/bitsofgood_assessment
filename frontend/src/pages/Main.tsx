@@ -1,10 +1,10 @@
 import HeroTable from "../components/HeroTable";
-function Main() {
+function Main({isAdmin}: {isAdmin: boolean}) {
     
 
     return (
         <div>
-            <HeroTable  />
+            <HeroTable isAdmin={isAdmin} />
         </div>
     );
 }

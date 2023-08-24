@@ -1,7 +1,14 @@
+import { useNavigate } from "react-router-dom";
 
-function AdminLogin() {
+
+function AdminLogin({setIsAdmin} : {setIsAdmin: (arg0: boolean) => void}) {
+    const navigate = useNavigate();
     return (
-        <p>splash page</p>
+        <div>
+            <input type="text" placeholder="Username"/>
+            <input type="text" placeholder="Password"/>
+            <button onClick={() => {setIsAdmin(true); navigate("/heroes")}}>Sign In</button>
+        </div>
     );
 }
 
