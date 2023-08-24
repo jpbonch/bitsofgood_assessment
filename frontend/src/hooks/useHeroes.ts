@@ -10,6 +10,9 @@ export default function useHeroes() {
   const updateHeroes = async () => {
     HeroService.getAll()
       .then((response: any) => {
+        response.data.sort((a: Hero, b:Hero) => 
+        a.hero_project.toLowerCase().localeCompare(b.hero_project.toLowerCase())
+        )
         setHeroes(response.data);
         setLoading(false);
         console.log(response.data);
