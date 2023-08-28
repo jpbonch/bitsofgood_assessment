@@ -5,6 +5,7 @@ import { useEffect } from "react";
 
 export default function useHeroes() {
   const [heroes, setHeroes] = useState<Array<Hero>>([]);
+  const [projects, setProjects] = useState<Array<string>>();
   const [loading, setLoading] = useState<boolean>(true);
 
   const updateHeroes = async () => {
@@ -56,8 +57,24 @@ export default function useHeroes() {
     }
   };
 
+  const getProjects = async () => {
+    let projects = new Set<string>();
+    HeroService.getAll()
+      .then((response: any) => {
+        for (let hero of response.data) {
+          projects.add(hero.hero_project);
+        }
+        setProjects(Array.from(projects.values()))
+      })
+      .catch((e: Error) => {
+        console.log(e);
+      });
+      console.log(projects)
+  }
+
   useEffect(() => {
     updateHeroes();
+    getProjects();
   }, []);
 
   return {
@@ -68,5 +85,6 @@ export default function useHeroes() {
     updateHero,
     removeHero,
     loading,
+    projects
   };
 }

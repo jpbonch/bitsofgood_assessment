@@ -1,0 +1,21 @@
+.button {
+    -ms-transform: skewX(-15deg);
+  -webkit-transform: skewX(-15deg);
+  transform: skewX(-15deg);
+  padding: 7px;
+  border: 0;
+  box-shadow: -2px 2px 0px black;
+  border-radius: 3px;
+  font-family: "Manrope";
+}
+
+.button:hover{
+    cursor: pointer;
+}
+
+.buttonContent{
+    -ms-transform: skewX(15deg);
+    -webkit-transform: skewX(15deg);
+    transform: skewX(15deg);  
+    display: inline-block;
+}

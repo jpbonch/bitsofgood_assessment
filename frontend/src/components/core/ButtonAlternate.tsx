@@ -1,7 +1,10 @@
-
-function ButtonAlternate() {
+import "./styles/ButtonAlternate.css"
+interface ButtonProps {
+    text: string
+}
+function ButtonAlternate({text} : ButtonProps) {
     return (
-        <p>splash page</p>
+        <button className="buttonAlternate">{text}</button>
     );
 }
 

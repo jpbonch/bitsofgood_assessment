@@ -1,7 +1,15 @@
+import "./styles/Button.css"
 
-function Button() {
+
+interface ButtonProps {
+    text: string
+}
+
+function Button({text} : ButtonProps) {
     return (
-        <p>splash page</p>
+        <button className="button">
+            <span className="buttonContent">{text}</span>
+            </button>
     );
 }
 

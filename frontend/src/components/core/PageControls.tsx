@@ -20,7 +20,9 @@ export default function PageControls({
   // if page = 2 we want 1,2,3,4,5
   // if page = 3 we want 1,2,3,4,5
   // if page = 4 we want 2,3,4,5,6
-  if (currentPage <= 3) {
+  if (lastPage <= 5) {
+    pages = Array.from({length: lastPage}, (_, i) => i + 1)
+  } else if (currentPage <= 3) {
     pages = [1, 2, 3, 4, 5];
   } else if (currentPage >= 8) {
     pages = [6, 7, 8, 9, 10]
