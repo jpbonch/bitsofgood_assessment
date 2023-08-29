@@ -45,7 +45,7 @@ export default function HeroInfo({isAdmin} : {isAdmin: boolean}) {
  
     return (<div style={{display: "flex", alignItems: "center", justifyContent: "center",marginTop: "100px"}}>
         <button style={{position: "fixed", top: "10px", left: "10px"}} onClick={()=> navigate("/heroes")}>Back</button>
-        {isAdmin ? <button onClick={() => setShowModal(true)}>Edit</button> : null}
+        
         {showModal ? <Modal setShowModal={setShowModal}><EditHeroForm hero={hero} setShowModal={setShowModal} updateHero={updateHero}></EditHeroForm></Modal>: null}
         <div style={{display: "flex", margin: "auto"}}>
         <div style={{marginRight: "20px", backgroundColor: "white", borderRadius: "20px", padding: "10px"}}>
@@ -56,6 +56,7 @@ export default function HeroInfo({isAdmin} : {isAdmin: boolean}) {
         <p>Phone: {hero.phone}</p>
         <p>Rating: {hero.rating}</p>
         <p>Clicks: {hero.clicks}</p>
+        {isAdmin ? <button style={{margin: "auto", display: "block"}} onClick={() => setShowModal(true)}>Edit</button> : null}
         </div>
         <img className="bigHeroImg" src={hero.avatar} alt={"hero"}></img>
         </div>

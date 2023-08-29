@@ -28,8 +28,8 @@ function HeroListing({hero, updateHero, isAdmin} : {hero: Hero, updateHero: (id:
                 </div>
 
                 <p>Notes: {hero.notes}</p>
-                <div className="rating"><p>{hero.rating}</p><p style={{fontSize: "12px"}}>RATED</p></div>
-                {isAdmin ? <button onClick={(e)=>{e.stopPropagation(); setShowModal(true)}}>Edit</button> : null}
+                <div className="rating"><p>{hero.rating}</p><p style={{fontSize: "12px"}}>RATED</p>{isAdmin ? <button onClick={(e)=>{e.stopPropagation(); setShowModal(true)}}>Edit</button> : null}</div>
+                
             </div>
             {showModal ? <Modal setShowModal={setShowModal}><EditHeroForm hero={hero} setShowModal={setShowModal} updateHero={updateHero}></EditHeroForm></Modal> : null}
         </div>

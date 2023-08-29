@@ -3,9 +3,9 @@ import "./styles/Modal.css"
 
 function Modal({children, setShowModal} : {children: ReactNode, setShowModal: Function}) {
     return (
-        <div className="shadow">
+        <div className="shadow" onClick={(e)=> e.stopPropagation()}>
         <div className="modal">
-            <button onClick={()=>setShowModal(false)}>X</button>
+            <button className="modalClose" onClick={()=>setShowModal(false)}>X</button>
             {children}
         </div>
         </div>

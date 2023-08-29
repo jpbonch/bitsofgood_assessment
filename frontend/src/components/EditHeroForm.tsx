@@ -17,6 +17,7 @@ function EditHeroForm({hero, setShowModal, updateHero} : {hero: Hero, setShowMod
 
     return (
         <form onSubmit={editHero}>
+            <h2>Edit Hero</h2>
             <label>
                 Name:
                 <input type="text" name="name" value={formData.name} onChange={handleInputChange} />
@@ -41,7 +42,7 @@ function EditHeroForm({hero, setShowModal, updateHero} : {hero: Hero, setShowMod
                 Rating:
                 <input type="text" name="rating" value={formData.rating} onChange={handleInputChange} />
             </label>
-            <button type="submit">Submit</button>
+            <button className="submitButton" type="submit">Submit</button>
         </form>
     );
 }
