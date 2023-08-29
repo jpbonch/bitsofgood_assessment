@@ -18,20 +18,22 @@ function HeroListing({hero, updateHero, isAdmin} : {hero: Hero, updateHero: (id:
     return (
         <>
         <div onClick={(e) => {e.stopPropagation();incrementClickCount(); navigate(`/hero/${hero.id}`)}} className="listingContainer">
-            <img src={hero.avatar} alt="Hero" className="heroImg"></img>
-            <div>
-            <p>{hero.name}</p>
-            <div className="metaContainer">
-            <p>Project: {hero.hero_project}</p>
-            <p>Notes: {hero.notes}</p>
+        <img src={hero.avatar} alt="Hero" className="heroImg"></img>
+            <div style={{display: "grid", gridTemplateColumns: "1fr 1fr 1fr", justifyItems: "center", alignItems: "center", padding: "10px"}}>
+                
+
+                <div className="metaContainer">
+                    <p style={{fontSize: "1rem", margin: 0}}>{hero.name}</p>
+                    <p><b>Project:</b> {hero.hero_project}</p>
+                </div>
+
+                <p>Notes: {hero.notes}</p>
+                <div className="rating"><p>{hero.rating}</p><p style={{fontSize: "12px"}}>RATED</p></div>
+                {isAdmin ? <button onClick={(e)=>{e.stopPropagation(); setShowModal(true)}}>Edit</button> : null}
             </div>
-            
-            </div>
-            <div className="rating">{hero.rating}</div>
-            {isAdmin ? <button onClick={(e)=>{e.stopPropagation(); setShowModal(true)}}>Edit</button> : null}
-            
+            {showModal ? <Modal setShowModal={setShowModal}><EditHeroForm hero={hero} setShowModal={setShowModal} updateHero={updateHero}></EditHeroForm></Modal> : null}
         </div>
-        {showModal ? <Modal setShowModal={setShowModal}><EditHeroForm hero={hero} setShowModal={setShowModal} updateHero={updateHero}></EditHeroForm></Modal> : null}
+        
         </>
     );
 }

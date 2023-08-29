@@ -5,6 +5,7 @@ import EditHeroForm from "../components/EditHeroForm";
 import { useParams } from "react-router-dom";
 import useHeroes from "../hooks/useHeroes";
 import { Hero } from "../types/Hero";
+import "./styles/HeroInfo.css"
 
 export default function HeroInfo({isAdmin} : {isAdmin: boolean}) {
     const {id} = useParams();
@@ -42,17 +43,21 @@ export default function HeroInfo({isAdmin} : {isAdmin: boolean}) {
     } 
 
  
-    return (<div>
-        <button onClick={()=> navigate("/heroes")}>Back</button>
+    return (<div style={{display: "flex", alignItems: "center", justifyContent: "center",marginTop: "100px"}}>
+        <button style={{position: "fixed", top: "10px", left: "10px"}} onClick={()=> navigate("/heroes")}>Back</button>
         {isAdmin ? <button onClick={() => setShowModal(true)}>Edit</button> : null}
         {showModal ? <Modal setShowModal={setShowModal}><EditHeroForm hero={hero} setShowModal={setShowModal} updateHero={updateHero}></EditHeroForm></Modal>: null}
+        <div style={{display: "flex", margin: "auto"}}>
+        <div style={{marginRight: "20px", backgroundColor: "white", borderRadius: "20px", padding: "10px"}}>
         <p>Name: {hero.name}</p>
         <p>Project: {hero.hero_project}</p>
         <p>Notes: {hero.notes}</p>
-        <p>email: {hero.email}</p>
-        <p>phone: {hero.phone}</p>
-        <p>rating: {hero.rating}</p>
-        <img src={hero.avatar} alt={"hero"}></img>
-        <p>Clicks: {hero.clicks}</p>        
+        <p>Email: {hero.email}</p>
+        <p>Phone: {hero.phone}</p>
+        <p>Rating: {hero.rating}</p>
+        <p>Clicks: {hero.clicks}</p>
+        </div>
+        <img className="bigHeroImg" src={hero.avatar} alt={"hero"}></img>
+        </div>
     </div>);
 }

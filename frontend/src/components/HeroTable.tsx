@@ -30,16 +30,18 @@ function HeroTable({isAdmin}: {isAdmin: boolean}) {
     }
 
     return (
-        <>
+        <div className="heroTable">
         <input placeholder="Search hero..." type="text" value={search} onChange={(e) => setSearch(e.target.value)} className="searchBar"></input>
         <div className="tableFilters">
-        <div>
+        <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
             Project: 
         <select className="select" value={project} onChange={(e)=> {console.log(e.target.value);setProject(e.target.value)}}>
             <option>-</option>
             {projects.map((project, idx) => <option key={idx}>{project}</option>)}
         </select>
         </div>
+        <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+            Rating: 
         <MultiRangeSlider
         min={1}
         max={9}
@@ -47,16 +49,17 @@ function HeroTable({isAdmin}: {isAdmin: boolean}) {
           setRatingSlider([min, max])
         }
       />
+      </div>
       <Button onClick={()=>setShowModal(true)} text="Add Hero"></Button>
       </div>
       
-        <div>
+        <div style={{display: "flex", alignItems: "center", flexDirection: "column"}}>
             {heroesToDisplay.slice(firstHeroIndex, lastHeroIndex)}
         </div>
         
         <PageControls itemsPerPage={HEROES_PER_PAGE} totalItems={heroesToDisplay.length} setCurrentPage={setCurrentPage} currentPage={currentPage} />
         {showModal ? <Modal setShowModal={setShowModal}><AddHeroForm setShowModal={setShowModal} addHero={addHero}></AddHeroForm></Modal>: null}
-        </>
+        </div>
     );
 }
 

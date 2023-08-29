@@ -6,7 +6,8 @@
     margin: 20px;
     box-shadow: 0px 0px 5px 0px rgb(99, 99, 99);
     justify-content: space-between;
-    height: 127px
+    height: 127px;
+    width: 100%
 }
 
 .listingContainer:hover{
@@ -16,18 +17,17 @@
 
 .heroImg{
     border-radius: 30px;
-    margin-left: -10px;
+    margin: 0;
 }
 
 .rating{
-    width: 127px;
-    height: 127px;
+    /* width: 127px;
+    height: 127px; */
     font-size: 30px;
-    line-height: 125px;
+    /* line-height: 125px; */
     text-align: center;
 }
 
-.metaContainer {
-    display: flex;
-
+.rating > p {
+    margin: 0
 }
