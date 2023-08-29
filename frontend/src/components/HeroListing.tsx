@@ -18,15 +18,20 @@ function HeroListing({hero, updateHero, isAdmin} : {hero: Hero, updateHero: (id:
     return (
         <>
         <div onClick={(e) => {e.stopPropagation();incrementClickCount(); navigate(`/hero/${hero.id}`)}} className="listingContainer">
-            <img src={hero.avatar} alt="Hero"></img>
+            <img src={hero.avatar} alt="Hero" className="heroImg"></img>
+            <div>
             <p>{hero.name}</p>
-            <p>{hero.hero_project}</p>
-            <p>{hero.notes}</p>
-            <p>{hero.rating}</p>
+            <div className="metaContainer">
+            <p>Project: {hero.hero_project}</p>
+            <p>Notes: {hero.notes}</p>
+            </div>
+            
+            </div>
+            <div className="rating">{hero.rating}</div>
             {isAdmin ? <button onClick={(e)=>{e.stopPropagation(); setShowModal(true)}}>Edit</button> : null}
             
         </div>
-        {showModal ? <Modal><EditHeroForm hero={hero} setShowModal={setShowModal} updateHero={updateHero}></EditHeroForm></Modal> : null}
+        {showModal ? <Modal setShowModal={setShowModal}><EditHeroForm hero={hero} setShowModal={setShowModal} updateHero={updateHero}></EditHeroForm></Modal> : null}
         </>
     );
 }

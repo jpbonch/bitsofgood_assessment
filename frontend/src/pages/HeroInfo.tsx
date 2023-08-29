@@ -45,7 +45,7 @@ export default function HeroInfo({isAdmin} : {isAdmin: boolean}) {
     return (<div>
         <button onClick={()=> navigate("/heroes")}>Back</button>
         {isAdmin ? <button onClick={() => setShowModal(true)}>Edit</button> : null}
-        {showModal ? <Modal><EditHeroForm hero={hero} setShowModal={setShowModal} updateHero={updateHero}></EditHeroForm></Modal>: null}
+        {showModal ? <Modal setShowModal={setShowModal}><EditHeroForm hero={hero} setShowModal={setShowModal} updateHero={updateHero}></EditHeroForm></Modal>: null}
         <p>Name: {hero.name}</p>
         <p>Project: {hero.hero_project}</p>
         <p>Notes: {hero.notes}</p>

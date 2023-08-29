@@ -34,7 +34,7 @@ export default function PageControls({
 
 
   return (
-    <div>
+    <div className="pageControlsContainer">
       <button disabled={currentPage === 1} onClick={() => setCurrentPage(currentPage-1)}>{"<"}</button>
       {pages.map((number, idx) => (
         <div

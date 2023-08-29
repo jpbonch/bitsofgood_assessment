@@ -3,9 +3,16 @@
   src: url(./Manrope.ttf);
 }
 
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: "Manrope";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(-225deg, rgb(82, 113, 196) 0%, rgb(177, 159, 255) 48%, rgb(236, 161, 254) 100%);
+  background-repeat: no-repeat;
+    background-attachment: fixed;
 }

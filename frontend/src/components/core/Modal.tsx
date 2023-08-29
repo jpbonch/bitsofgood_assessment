@@ -1,11 +1,16 @@
 import { ReactNode } from "react";
+import "./styles/Modal.css"
 
-function Modal({children} : {children: ReactNode}) {
+function Modal({children, setShowModal} : {children: ReactNode, setShowModal: Function}) {
     return (
-        <div>
+        <div className="shadow">
+        <div className="modal">
+            <button onClick={()=>setShowModal(false)}>X</button>
             {children}
         </div>
+        </div>
     );
+
 }
 
 export default Modal;

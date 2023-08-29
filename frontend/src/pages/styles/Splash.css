@@ -11,15 +11,13 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -100%);
-    font-family: "Manrope";
-    font-style: italic;
-    
+    font-family: "Manrope";    
 }
 
 h1 {
     font-size: 90px;
     margin: 0;
-    text-shadow: -3px 3px 0px black;
+    text-shadow: -3px 3px 1px rgb(54, 54, 54);
     font-weight: 800;
 }
 

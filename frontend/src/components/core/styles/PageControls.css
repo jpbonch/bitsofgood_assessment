@@ -1,3 +1,29 @@
 .pageActive {
-    background-color: blue;
+    background-color: lightblue;
+}
+
+.page{
+    border: 2px solid white
+}
+
+.page, .pageActive{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    margin: 2px;
+}
+
+.page:hover, .pageActive:hover{
+    cursor: pointer;
+}
+
+.pageControlsContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
 }
